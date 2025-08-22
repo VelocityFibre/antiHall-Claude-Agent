@@ -1,0 +1,44 @@
+{
+  "name": "antihall-claude-agent",
+  "version": "1.0.0",
+  "description": "antiHall Agent for Claude Code - Prevents AI hallucinations in code generation",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "setup": "npm install && npm run build",
+    "build": "tsc",
+    "parse": "node scripts/parse-codebase.js",
+    "parse:improved": "node scripts/parse-codebase-improved.js",
+    "validate": "node scripts/validate.js",
+    "test": "node test/test-suite.js",
+    "docker:build": "docker build -t antihall-agent .",
+    "docker:run": "docker run -it -v $(pwd)/../:/project antihall-agent"
+  },
+  "keywords": [
+    "claude-code",
+    "ai-validation",
+    "hallucination-prevention",
+    "code-quality",
+    "typescript",
+    "angular"
+  ],
+  "author": "FibreFlow Team",
+  "license": "MIT",
+  "dependencies": {
+    "@typescript-eslint/parser": "^6.13.0",
+    "@typescript-eslint/typescript-estree": "^6.13.0",
+    "typescript": "^5.3.0",
+    "winston": "^3.17.0",
+    "chalk": "^5.3.0",
+    "commander": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "bin": {
+    "antihall": "./bin/antihall.js"
+  }
+}

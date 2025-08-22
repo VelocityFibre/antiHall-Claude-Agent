@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  antihall:
+    build: .
+    image: antihall-agent:latest
+    volumes:
+      - ${PROJECT_PATH:-..}:/project
+      - ./knowledge-graphs:/antihall/knowledge-graphs
+    environment:
+      - FRAMEWORK=${FRAMEWORK:-angular}
+      - NODE_ENV=production
+    command: interactive
+    stdin_open: true
+    tty: true
+
+  antihall-parse:
+    image: antihall-agent:latest
+    volumes:
+      - ${PROJECT_PATH:-..}:/project
+      - ./knowledge-graphs:/antihall/knowledge-graphs
+    environment:
+      - FRAMEWORK=${FRAMEWORK:-angular}
+    command: parse /project
+
+  antihall-validate:
+    image: antihall-agent:latest
+    volumes:
+      - ${PROJECT_PATH:-..}:/project
+      - ./knowledge-graphs:/antihall/knowledge-graphs
+    environment:
+      - FRAMEWORK=${FRAMEWORK:-angular}
+    command: validate "${CODE:-this.test()}"

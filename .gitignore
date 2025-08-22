@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+build/
+*.js
+*.d.ts
+*.js.map
+
+# Knowledge graphs
+knowledge-graph.json
+knowledge-graphs/
+knowledge-graph-chunks/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test output
+test-results/
+coverage/
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+
+# Keep source TypeScript files
+!src/**/*.ts
+!scripts/**/*.ts
